@@ -13,19 +13,21 @@ function Home() {
 
   return (
     <div className="container mt-5 text-center">
-      <h1 className="mb-4"> My Weather App</h1>
+      <div className="card p-4 shadow-sm mx-auto" style={{ maxWidth: "500px" }}>
+        <h2 className="mb-3"> Cerca il meteo della tua città</h2>
 
-      <input
-        type="text"
-        className="form-control w-50 m-auto"
-        placeholder="Inserisci una città..."
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-      />
+        <input
+          type="text"
+          className="form-control mb-3"
+          placeholder="Inserisci una città..."
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
 
-      <button className="btn btn-primary mt-3" onClick={handleSearch}>
-        Cerca
-      </button>
+        <button className="btn btn-primary w-100" onClick={handleSearch}>
+          Cerca
+        </button>
+      </div>
     </div>
   );
 }

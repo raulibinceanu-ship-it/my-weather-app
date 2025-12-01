@@ -12,19 +12,25 @@ function Home() {
   };
 
   return (
-    <div className="container mt-5 text-center">
-      <div className="card p-4 shadow-sm mx-auto" style={{ maxWidth: "500px" }}>
-        <h2 className="mb-3"> Cerca il meteo della tua città</h2>
+    <div
+      className="d-flex justify-content-center align-items-center"
+      style={{
+        minHeight: "calc(100vh - 70px)",
+        paddingTop: "30px",
+      }}
+    >
+      <div className="card p-4 shadow" style={{ width: "380px" }}>
+        <h3 className="text-center mb-3">Cerca il meteo della tua città</h3>
 
         <input
           type="text"
-          className="form-control mb-3"
+          className="form-control"
           placeholder="Inserisci una città..."
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
 
-        <button className="btn btn-primary w-100" onClick={handleSearch}>
+        <button className="btn btn-primary mt-3 w-100" onClick={handleSearch}>
           Cerca
         </button>
       </div>

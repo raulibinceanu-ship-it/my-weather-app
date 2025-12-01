@@ -12,20 +12,18 @@ function WeatherDetails() {
     const fetchWeather = async () => {
       try {
         const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}&lang=it`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=it`
         );
         const data = await res.json();
 
-        // meteo attuale
-        setWeather(data.list[0]);
-
-        // prossimi 5 giorni
-        const days = data.list
-          .filter((_, index) => index % 8 === 0)
-          .slice(0, 5);
-        setDaily(days);
+        if (data.list) {
+          setWeather(data.list[0]);
+          setDaily(
+            data.list.filter((item, index) => index % 8 === 0).slice(0, 5)
+          );
+        }
       } catch (error) {
-        console.log("Errore fetch meteo:", error);
+        console.log(error);
       }
     };
 
